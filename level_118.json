@@ -1,0 +1,107 @@
+{
+  "pipes": [
+    {
+      "id": 1,
+      "colors": [
+        "pi",
+        "lg",
+        "db",
+        "wh"
+      ],
+      "capacity": 4
+    },
+    {
+      "id": 2,
+      "colors": [
+        "r1",
+        "wh",
+        "ye",
+        "lb"
+      ],
+      "capacity": 4
+    },
+    {
+      "id": 3,
+      "colors": [
+        "dg",
+        "dg",
+        "pi",
+        "r1"
+      ],
+      "capacity": 4
+    },
+    {
+      "id": 4,
+      "colors": [
+        "lg",
+        "ye",
+        "wh",
+        "pi"
+      ],
+      "capacity": 4
+    },
+    {
+      "id": 5,
+      "colors": [
+        "dg",
+        "ye",
+        "lg",
+        "db"
+      ],
+      "capacity": 4
+    },
+    {
+      "id": 6,
+      "colors": [
+        "r1",
+        "lb",
+        "or",
+        "r1"
+      ],
+      "capacity": 4
+    },
+    {
+      "id": 7,
+      "colors": [
+        "dg",
+        "lb",
+        "or",
+        "or"
+      ],
+      "capacity": 4
+    },
+    {
+      "id": 8,
+      "colors": [
+        "lb",
+        "db",
+        "pi",
+        "lg"
+      ],
+      "capacity": 4
+    },
+    {
+      "id": 9,
+      "colors": [
+        "db",
+        "ye",
+        "or",
+        "wh"
+      ],
+      "capacity": 4
+    },
+    {
+      "id": 10,
+      "colors": [
+      ],
+      "capacity": 4
+    },
+    {
+      "id": 11,
+      "colors": [
+      ],
+      "capacity": 4
+    }
+  ],
+  "max_depth": 40
+}
