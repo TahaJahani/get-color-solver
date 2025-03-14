@@ -2,39 +2,39 @@ import hashlib
 import json
 from copy import copy
 from typing import List
-from pipe import Pipe
+from bottle import Bottle
 
 class Game:
     def __init__(self, maximum_depth: int):
-        self.pipes: List[Pipe] = []
+        self.bottles: List[Bottle] = []
         self.seen_states: List[str] = []
         self.maximum_depth: int = maximum_depth
 
-    def add_pipe(self, pipe):
-        self.pipes.append(pipe)
+    def add_bottle(self, bottle):
+        self.bottles.append(bottle)
 
     def print(self):
-        for index, pipe in enumerate(self.pipes):
+        for index, bottle in enumerate(self.bottles):
             print(index, end=". ")
-            pipe.print()
+            bottle.print()
 
     def pour(self, src, dst):
-        src_pipe = self.pipes[src]
-        dst_pipe = self.pipes[dst]
-        src_pipe.pour_to(dst_pipe)
+        src_bottle = self.bottles[src]
+        dst_bottle = self.bottles[dst]
+        src_bottle.pour_to(dst_bottle)
 
     def won(self):
         won = True
-        for pipe in self.pipes:
-            if not pipe.is_done():
+        for bottle in self.bottles:
+            if not bottle.is_done():
                 won = False
                 break
         return won
 
     def get_state(self):  # performance...
         colors = []
-        for pipe in self.pipes:
-            colors.append(str(pipe.colors))
+        for bottle in self.bottles:
+            colors.append(str(bottle.colors))
         colors = sorted(colors)
         return hashlib.sha512(str(colors).encode()).hexdigest()
 
@@ -56,8 +56,8 @@ class Game:
         if self.won():
             self.print_path(path)
             exit(0)
-        for src_index, src in enumerate(self.pipes):
-            for dst_index, dst in enumerate(self.pipes):
+        for src_index, src in enumerate(self.bottles):
+            for dst_index, dst in enumerate(self.bottles):
                 if src_index == dst_index:
                     continue
                 if src.can_pour_to(dst) and src.good_to_pour_to(dst):
@@ -75,7 +75,7 @@ class Game:
         with open(file_name, "r") as f:
             data = json.load(f)
         game = Game(data['max_depth'])
-        for pipe_data in data['pipes']:
-            pipe = Pipe(pipe_data['colors'], pipe_data['capacity'])
-            game.add_pipe(pipe)
+        for bottles_data in data['bottles']:
+            bottle = Bottle(bottles_data['colors'], bottles_data['capacity'])
+            game.add_bottle(bottle)
         return game
